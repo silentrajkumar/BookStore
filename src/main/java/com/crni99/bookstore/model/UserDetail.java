@@ -16,6 +16,11 @@ public class UserDetail {
 public String getUsername() {
 	return username;
 }
+public UserDetail(String username, String password) {
+	super();
+	this.username = username;
+	this.password = password;
+}
 public void setUsername(String username) {
 	this.username = username;
 }
