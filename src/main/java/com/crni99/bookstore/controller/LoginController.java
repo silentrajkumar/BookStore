@@ -13,7 +13,7 @@ public class LoginController {
 	public String showLoginPage() {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+		if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {// PEN-2 - Create new workflow in login controller by N787876
 			return "login";
 		}
 		return "redirect:/book";
