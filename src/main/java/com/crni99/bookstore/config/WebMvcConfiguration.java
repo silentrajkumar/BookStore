@@ -2,6 +2,7 @@ package com.crni99.bookstore.config;
 
 import java.beans.PropertyVetoException;
 
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +17,17 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @Configuration
 @PropertySource("classpath:application.properties")
 public class WebMvcConfiguration {
+	@Value ("${spring.mail.port}")
+	public  int mailPort;
 	
+	public int getMailPort() {
+		return mailPort;
+	}
+
+	public void setMailPort(int mailPort) {
+		this.mailPort = mailPort;
+	}
+
 	@Value("${spring.datasource.driver-class-name}")
 	private String driver;
 
@@ -40,6 +51,7 @@ public class WebMvcConfiguration {
 
 	@Value("${connection.pool.maxIdleTime}")
 	private int connPoolMaxIdleTime;
+	
 
 	@Bean
 	public MessageSource messageSource() {
